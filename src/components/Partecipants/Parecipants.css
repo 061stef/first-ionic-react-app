@@ -1,0 +1,34 @@
+.hero-container{
+    padding: 10px;
+    width: 80%;
+    margin: 10px auto;
+    display: grid;
+    justify-content: center;
+    grid-row-gap: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+h6{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+.container-list{ 
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+}
+.participants-card{
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 4px;
+}
+.participants-card img{
+    max-width: 50px;
+}
+p{
+    margin: 0;
+}
+.container-accordions{ display: grid; }
+.accordion{display: flex; justify-content: space-between;}
