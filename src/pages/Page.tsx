@@ -2,6 +2,7 @@ import { IonAlert, IonButtons, IonContent, IonHeader, IonLoading, IonMenuButton,
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Webinar from '../components/Webinar/Webinar';
+import { CMS_STRAPI_PATH } from '../lib/path';
 import './Page.css';
 
 
@@ -15,7 +16,7 @@ const Page: React.FC = () => {
   useEffect(() => {
     async function prova() {
       try {
-        const response = await fetch('https://cms.btcongress-cloud.com/webinars/' + id);
+        const response = await fetch(`${CMS_STRAPI_PATH}/webinars/${id}`);
         const webinar = await response.json()
         console.log('webinar', webinar);
         

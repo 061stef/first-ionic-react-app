@@ -3,6 +3,7 @@ import { closeSharp } from "ionicons/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
+import { CMS_STRAPI_PATH } from "../lib/path";
 import './Home.css'
 
 interface HomeState {
@@ -31,7 +32,7 @@ export default class Home extends React.Component<{}, HomeState>{
     }
 
     async componentDidMount() {
-        const response = await fetch('https://cms.btcongress-cloud.com/webinars?scientific_society=AIGE');
+        const response = await fetch(`${CMS_STRAPI_PATH}/webinars?scientific_society=AIGE`);
         const json = await response.json();
         this.setState({
             data: json
@@ -78,7 +79,7 @@ export default class Home extends React.Component<{}, HomeState>{
                         {(this.state.dataFiltered.length === 0 ? this.state.data : this.state.dataFiltered).map((item: any, index: number) => (
                             <Link to={`/webinar/${item.id}`} replace={true} >
                                 <IonCard key={index}>
-                                    <img src={`https://cms.btcongress-cloud.com${item.webinar_image?.url}`} alt={item.webinar_image?.url} title={item.webinar_title} style={{ maxHeight: 94, width: '100%', objectFit: "cover" }} />
+                                    <img src={`${CMS_STRAPI_PATH}${item.webinar_image?.url}`} alt={item.webinar_image?.url} title={item.webinar_title} style={{ maxHeight: 94, width: '100%', objectFit: "cover" }} />
                                     <h6 style={{ margin: "10px", textAlign: "center" }}>{item.webinar_title}</h6>
                                 </IonCard>
                             </Link>

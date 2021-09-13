@@ -3,6 +3,7 @@ import React from "react";
 import './Parecipants.css'
 import moment from 'moment'
 import { arrowDown, closeSharp } from "ionicons/icons";
+import { CMS_STRAPI_PATH } from "../../lib/path";
 
 interface PartecipantsProps {
     partecipants: any,
@@ -53,7 +54,7 @@ export default class Partecipants extends React.Component<PartecipantsProps, Par
                         {(partecipants || []).map((participant: any, index: number) => {
                             return (
                                 <div className="participants-card" key={index} onClick={() => this.openModal(participant)}>
-                                    <img src={`https://cms.btcongress-cloud.com${participant.biography?.Avatar?.url}`} alt={`${participant.biography.Nome} ${participant.biography.Cognome}`} />
+                                    <img src={`${CMS_STRAPI_PATH}${participant.biography?.Avatar?.url}`} alt={`${participant.biography.Nome} ${participant.biography.Cognome}`} />
                                     <p><small>{participant.biography.Nome} {participant.biography.Cognome}</small></p>
                                 </div>
                             )
@@ -71,7 +72,7 @@ export default class Partecipants extends React.Component<PartecipantsProps, Par
                     </IonHeader>
                     <IonContent>
                         <div style={{ textAlign: "center" }}>
-                            <img style={{ maxWidth: '100px', margin: '10px' }} src={`https://cms.btcongress-cloud.com${this.state.profile?.biography?.Avatar?.url}`} alt={`${this.state.profile?.biography.Nome} ${this.state.profile?.biography.Cognome}`} />
+                            <img style={{ maxWidth: '100px', margin: '10px' }} src={`${CMS_STRAPI_PATH}${this.state.profile?.biography?.Avatar?.url}`} alt={`${this.state.profile?.biography.Nome} ${this.state.profile?.biography.Cognome}`} />
                             <div className="container-accordions">
                                 <div className="accordion">
                                     <div className="button-accordion">
