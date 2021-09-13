@@ -3,6 +3,7 @@ import React from "react";
 import ReactPlayer from 'react-player'
 import ActionButton from "../ActionButton/ActionButton";
 import ExtraItem from "../ExtraItem/ExtraItem";
+import MediaItem from "../MediaItem/MediaItem";
 import Partecipants from "../Partecipants/Partecipants";
 
 interface WebinarProps {
@@ -73,6 +74,11 @@ export default class Webinar extends React.Component<WebinarProps, WebinarState>
             initialSlide: 1,
             speed: 400,
         };
+        const slideOptsMedia = {
+            slidesPerView: this.state.webinar?.Media.length > 1 ? 2 : 1,
+            initialSlide: 1,
+            speed: 400,
+        };
         return (
             <IonPage>
                 <IonHeader>
@@ -99,6 +105,18 @@ export default class Webinar extends React.Component<WebinarProps, WebinarState>
                             {(this.state.webinar?.extra || []).map((item: any, index: number) => (
                                 <IonSlide key={index}>
                                     <ExtraItem item={item} />
+                                </IonSlide>
+                            ))}
+                        </IonSlides>
+
+                    </div> : null}
+                    {this.state.webinar?.Media.length ?
+                    <div id={'product'}>
+                        <h2 style={{ textAlign: "center" }}>Media</h2>
+                        <IonSlides pager={true} options={slideOptsMedia} className="--bullet-background">
+                            {(this.state.webinar?.Media || []).map((item: any, index: number) => (
+                                <IonSlide key={index}>
+                                    <MediaItem item={item} type={item.media_type} />
                                 </IonSlide>
                             ))}
                         </IonSlides>

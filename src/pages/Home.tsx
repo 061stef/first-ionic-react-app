@@ -31,7 +31,7 @@ export default class Home extends React.Component<{}, HomeState>{
     }
 
     async componentDidMount() {
-        const response = await fetch('https://cms.btcongress-cloud.com/webinars/');
+        const response = await fetch('https://cms.btcongress-cloud.com/webinars?scientific_society=AIGE');
         const json = await response.json();
         this.setState({
             data: json

@@ -1,0 +1,1 @@
+export const CMS_STRAPI_PATH = "https://cms.btcongress-cloud.com"

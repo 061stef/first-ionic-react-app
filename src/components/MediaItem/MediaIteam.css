@@ -1,0 +1,12 @@
+.container-media{
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #eaeef1;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+    width: 70%;
+}
+.container-media img{
+    
+    margin: 0 auto;
+}
