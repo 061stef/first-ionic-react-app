@@ -23,9 +23,7 @@ export default class Webinar extends React.Component<WebinarProps, WebinarState>
         }
     }
     async componentDidMount() {
-        console.log('props', this.props.webinar);
         const { player, player_link }: any = this.props.webinar;
-        console.log('Player type', player, player_link);
         this.setState({
             webinar: this.props.webinar
         })
